@@ -1,5 +1,5 @@
 def minimize_calories_objective_function(df):
-    z = df["Data.Kilocalories"]
+    z = df["Data.Kilocalories"].array
     return z
 
 def solve(z,A_ub,b_ub,bounds):

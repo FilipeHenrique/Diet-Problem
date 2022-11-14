@@ -16,7 +16,16 @@ def get_columns_names(df):
     print(columns)
 
 def clean_df(df):
+    # remove lines with null values
     df.dropna(inplace = True)
+
+    # clean Data. from columns title
+    column_headers = df.columns.values.tolist()
+    for column_header in column_headers:
+        if column_header.startswith("Data."):
+            new_header = column_header.split(".",1)[1]
+            df.rename(columns={column_header: new_header}, inplace=True)
+    
 
 def plot_df():
     df.plot()
