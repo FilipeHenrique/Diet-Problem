@@ -8,11 +8,13 @@ def add_restriction(df,column_id,flag):
     if flag == '1':
         A_ub.append(restrictions_list)
         limit = input('Provide the Maximum quantity: ')
+        b_ub.append(limit)
     elif flag == '2': 
         restrictions_list = [x * -1 for x in restrictions_list]
         A_ub.append(restrictions_list)
         limit = input('Provide the Minimum quantity: ')
-    b_ub.append(limit)
+        b_ub.append(limit*-1)
+
 
 def menu(df):
     column_headers = df.columns.values.tolist()
