@@ -1,19 +1,9 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def load_df():
     df = pd.read_csv('food.csv')
+    clean_df(df)
     return df
-
-def get_rows_and_columns(df):
-    rows = len(df.axes[0])
-    cols = len(df.axes[1])
-    print("Number of Rows: ", rows)
-    print("Number of Columns: ", cols)
-
-def get_columns_names(df):
-    columns = df.axes[1]
-    print(columns)
 
 def clean_df(df):
     # remove lines with null values
@@ -25,9 +15,14 @@ def clean_df(df):
         if column_header.startswith("Data."):
             new_header = column_header.split(".",1)[1]
             df.rename(columns={column_header: new_header}, inplace=True)
+
+def get_rows_and_columns(df):
+    rows = len(df.axes[0])
+    cols = len(df.axes[1])
+    print("Number of Rows: ", rows)
+    print("Number of Columns: ", cols)
+
+def get_columns_names(df):
+    columns = df.axes[1]
+    print(columns)
     
-
-def plot_df():
-    df.plot()
-    plt.show()
-

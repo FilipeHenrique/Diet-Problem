@@ -4,7 +4,6 @@ from processor import *
 
 # import and clean database
 df = load_df()
-clean_df(df)
 
 # get restrictions
 restrictions = menu(df)
