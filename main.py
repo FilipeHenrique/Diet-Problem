@@ -12,9 +12,12 @@ A_ub = restrictions[0]
 b_ub = restrictions[1]
 
 # get objective function
-z = minimize_calories_objective_function(df)
+z, bounds = minimize_calories_objective_function(df)
 
 # solve
-# falta definir o array de bounds
-# solve()
+result = solve(z,A_ub,b_ub,bounds).x
+print(len(result))
+# for index,element in enumerate(result):
+
+
 
