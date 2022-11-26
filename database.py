@@ -5,6 +5,9 @@ def load_df():
     return df
 
 def clean_df(df):
+      # drop irrelevant columns
+    df.drop(['Data.Ash','Nutrient Data Bank Number','Data.Household Weights.1st Household Weight','Data.Household Weights.2nd Household Weight'], axis=1, inplace=True)
+   
     # remove lines with null values
     df.dropna(inplace = True)
 
@@ -16,9 +19,6 @@ def clean_df(df):
     for column_header in column_headers:
         new_header = column_header.split(".")[-1]
         df.rename(columns={column_header: new_header}, inplace=True)
-    
-    # drop irrelevant columns
-    df.drop(['Ash','Nutrient Data Bank Number','1st Household Weight','2nd Household Weight'], axis=1, inplace=True)
 
     return df
 
